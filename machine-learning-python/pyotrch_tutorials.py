@@ -1,7 +1,15 @@
 import torch
-x=torch.empty(4,2,2)
-print(x)
-#print(torch.rand(5))
 
-y=torch.rand(2,3)
-print(y)
+x = torch.ones(2,2)
+
+print(x.size())
+
+if torch.cuda.is_available():
+    device=torch.device("cuda")
+    x=torch.ones(5,device=device)
+    y=torch.ones(5)
+    y=y.to(device)
+    z=x+y
+    print(z)
+
+
